@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "tsx watch ./src/server.ts",
     "build": "tsup src",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "vercel-build": "yarn prisma generate"
   },
   "keywords": [],
   "author": "",
