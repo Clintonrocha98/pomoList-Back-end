@@ -6,9 +6,20 @@ type UserRequest = {
   email: string;
   password: string;
 };
+type ReturnRequest = {
+  token: string;
+  user: {
+    id: string;
+    name: string;
+    email: string;
+  };
+};
 
 export class SessionService {
-  async handle({ email, password }: UserRequest) {
+  async handle({
+    email,
+    password,
+  }: UserRequest): Promise<Error | ReturnRequest> {
     const user = await prisma.user.findUnique({ where: { email } });
     if (!user) {
       return new Error("user does not exists");
@@ -18,6 +29,6 @@ export class SessionService {
       return new Error("User or password incorrect");
     }
     const token = sign({}, process.env.SECRET_JWT, { subject: user.id });
-    return { token };
+    return { token, user };
   }
 }
