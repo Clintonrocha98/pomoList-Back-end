@@ -19,13 +19,9 @@ export class SessionService {
     if (!passwordMatch) {
       return new Error("User or password incorrect");
     }
-    const token = sign(
-      { id: user.id, name: user.name },
-      process.env.SECRET_JWT,
-      {
-        subject: user.id,
-      }
-    );
-    return { token };
+    const token = sign({}, process.env.SECRET_JWT, {
+      subject: user.id,
+    });
+    return { token, id: user.id };
   }
 }
