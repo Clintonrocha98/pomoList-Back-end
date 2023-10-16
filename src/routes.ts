@@ -2,7 +2,7 @@ import { Router } from "express";
 import { CreateUserController } from "./controllers/CreateUserController";
 import { SessionController } from "./controllers/SessionController";
 import { CreateTaskControoler } from "./controllers/CreateTaskController";
-import { GetAllTasksController } from "./controllers/GetAllTasksController";
+import { AllTasksController } from "./controllers/AllTasksController";
 import { UpdateTaskControler } from "./controllers/UpdateTaskController";
 import { DeleteTaskController } from "./controllers/DeleteTaskController";
 import { ensuredAuthenticated } from "./middleware/ensuredAuthenticated";
@@ -18,10 +18,10 @@ routes.post(
   new CreateTaskControoler().handle
 );
 
-routes.get(
+routes.post(
   "/tasks",
   ensuredAuthenticated(),
-  new GetAllTasksController().handle
+  new AllTasksController().handle
 );
 
 routes.put(
