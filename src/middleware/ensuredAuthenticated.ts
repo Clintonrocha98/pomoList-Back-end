@@ -17,7 +17,6 @@ export const ensuredAuthenticated = () => {
       request.userId = sub.toString();
       return next();
     } catch (error) {
-      console.log("ele cai aqui");
       return response.status(401).end();
     }
   };
