@@ -3,13 +3,9 @@ O pomoList é um projeto de API construído com Node.js e Express.js que oferece
 
 ### Funcionalidades
 
-- Login
-  - Os usuários registrados podem fazer login no sistema.
+- Login: os usuários registrados podem fazer login no sistema.
 
-- Cadastro
-  - Os usuários podem se cadastrar para criar uma conta no sistema.
-
-### Gerenciamento de Tarefas
+- Cadastro: os usuários podem se cadastrar para criar uma conta no sistema.
 
 - Somente usuários autenticados podem realizar as seguintes operações:
   - Criar uma nova tarefa.
@@ -17,8 +13,6 @@ O pomoList é um projeto de API construído com Node.js e Express.js que oferece
   - Editar uma tarefa existente.
   - Deletar uma tarefa existente.
 
-### Banco de Dados
-O projeto utiliza o MongoDB como banco de dados para armazenar informações de usuários e tarefas. Além disso, o Prisma é utilizado como ORM (Object-Relational Mapping) para facilitar a interação com o banco de dados.
 
 ### Instalação
 Para configurar e executar o projeto localmente, siga estas etapas:
@@ -35,45 +29,16 @@ git clone git@github.com:Clintonrocha98/pomoList-Back-end.git
 cd pomoList
 ```
 
-3. Instale as dependências usando o Yarn ou Npm:
+3. Instale as dependências usando:
 
 ```bash
-yarn install OR npm install
+npm install
 ```
 
-### Rotas da API
-A API do **pomoList** oferece as seguintes rotas:
-
-### Cadastro de Usuário
-- Rota: POST /createUser
-- Controlador: CreateUserController
--  Descrição: Permite aos usuários criar uma nova conta no sistema.
-
-### Login
-- Rota: POST /login
-- Controlador: SessionController
-- Descrição: Permite aos usuários registrados fazer login no sistema.
-
-### Criar tarefa
-- Rota: POST /createTask
-- Controlador: CreateTaskController
-- Middleware: ensuredAuthenticated
-- Descrição: Permite aos usuários autenticados criar uma nova tarefa.
-
-### Obter Todas as tarefas
-- Rota: GET /tasks
-- Controlador: GetAllTasksController
-- Middleware: ensuredAuthenticated
-- Descrição: Permite aos usuários autenticados obter todas as tarefas existentes.
-
-### Editar Tarefa
-- Rota: PUT /updateTask
-- Controlador: UpdateTaskController
-- Middleware: ensuredAuthenticated
-- Descrição: Permite aos usuários autenticados editar uma tarefa existente.
-
-### Deletar Tarefa
-- Rota: DELETE /deleteTask
-- Controlador: DeleteTaskController
-- Middleware: ensuredAuthenticated
-- Descrição: Permite aos usuários autenticados deletar uma tarefa existente.
+### Rotas
+- ``/createuser``
+- ``/login``
+- ``/createtask``
+- ``/tasks``
+- ``/updatetask``
+- ``/deletetask``
