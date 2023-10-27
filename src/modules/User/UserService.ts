@@ -1,3 +1,4 @@
+import { hash } from "bcryptjs";
 import { User } from "../../entities/User";
 import { UnauthorizedError } from "../../helpers/api-errors";
 import { IUsersRepository } from "../../repositories/IUsersRepositories";
@@ -15,7 +16,10 @@ class UserService {
     if (userAlreadyExists) {
       throw new UnauthorizedError("Invalid user.");
     }
-    const userCreate = User.create({ name, email, password });
+    const passwordHash = await hash(password, 8);
+
+    const userCreate = User.create({ name, email, password: passwordHash });
+    
     const user = await this.usersRepository.create(userCreate);
     return user;
   }
