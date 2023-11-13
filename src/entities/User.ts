@@ -1,9 +1,9 @@
-class User {
+export class User {
   name: string;
   email: string;
   password: string;
 
-  private constructor({ name, email, password }: User) {
+  constructor({ name, email, password }: User) {
     return Object.assign(this, {
       name,
       email,
@@ -16,5 +16,3 @@ class User {
     return user;
   }
 }
-
-export { User };
