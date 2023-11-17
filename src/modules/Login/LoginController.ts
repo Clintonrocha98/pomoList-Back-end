@@ -3,10 +3,11 @@ import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { prisma } from "../../database/prisma";
 import { NotFoundError, UnauthorizedError } from "../../helpers/api-errors";
+import { userDto } from "../../dto/userDto";
 
 export class LoginController {
   async handle(request: Request, response: Response) {
-    const { email, password } = request.body;
+    const { email, password }: userDto = request.body;
 
     const user = await prisma.user.findUnique({ where: { email } });
 
