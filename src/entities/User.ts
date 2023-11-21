@@ -1,7 +1,23 @@
+import {
+  IsEmail,
+  IsNotEmpty,
+  IsString,
+  MaxLength,
+  MinLength,
+} from "class-validator";
+
 export class User {
-  name: string;
-  email: string;
-  password: string;
+  @MaxLength(100)
+  @IsNotEmpty()
+  @IsString()
+    name: string;
+
+  @IsString()
+  @IsEmail()
+    email: string;
+
+  @MinLength(8)
+    password: string;
 
   constructor({ name, email, password }: User) {
     return Object.assign(this, {

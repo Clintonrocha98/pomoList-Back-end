@@ -1,4 +1,3 @@
-import { taskDto } from "../../dto/taskDto";
 import { Task } from "../../entities/Task";
 import { NotFoundError } from "../../helpers/api-errors";
 import { ITaskRepository } from "../../repositories/ITaskRepositories";
@@ -6,7 +5,7 @@ import { ITaskRepository } from "../../repositories/ITaskRepositories";
 class TaskService {
   constructor(private taskRepository: ITaskRepository) {}
 
-  async create({ title, description, isFinished, userId }: taskDto) {
+  async create({ title, description, isFinished, userId }: Task) {
     const taskCreate = Task.create({
       title,
       description,
@@ -18,13 +17,7 @@ class TaskService {
     return task;
   }
 
-  async update({
-    id,
-    title,
-    description,
-    isFinished,
-    userId,
-  }: Partial<taskDto>) {
+  async update({ id, title, description, isFinished, userId }: Partial<Task>) {
     const taskAlreadyExists = await this.taskRepository.exists(id, userId);
 
     if (!taskAlreadyExists) {
@@ -44,7 +37,7 @@ class TaskService {
     return task;
   }
 
-  async delete({ id, userId }: Partial<taskDto>) {
+  async delete({ id, userId }: Partial<Task>) {
     const taskAlreadyExists = await this.taskRepository.exists(id, userId);
 
     if (!taskAlreadyExists) {
@@ -56,7 +49,7 @@ class TaskService {
     return task;
   }
 
-  async getAllTasks({ userId }: Partial<taskDto>) {
+  async getAllTasks({ userId }: Partial<Task>) {
     if (!userId) {
       throw new NotFoundError("Invalid user.");
     }
