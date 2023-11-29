@@ -1,17 +1,12 @@
 import { User } from "../../entities/User";
 import { BadRequestError, UnauthorizedError } from "../../helpers/api-errors";
-import { IUsersRepository } from "../../repositories/IUsersRepositories";
 import { UsersRepositoryInMemory } from "../../repositories/inMemory/UsersRepositoryInMemory";
 import { UserService } from "./UserService";
 
-describe("Create user", () => {
-  let usersRepository: IUsersRepository;
-  let createUserService: UserService;
+const usersRepository = new UsersRepositoryInMemory();
+const createUserService = new UserService(usersRepository);
 
-  beforeAll(() => {
-    usersRepository = new UsersRepositoryInMemory();
-    createUserService = new UserService(usersRepository);
-  });
+describe("Create user", () => {
 
   it("It should be possible to create a new user", async () => {
     const userData: User = {

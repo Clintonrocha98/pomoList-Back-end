@@ -1,20 +1,24 @@
+import { validate } from "class-validator";
 import { Task } from "../../entities/Task";
-import { NotFoundError } from "../../helpers/api-errors";
+import { BadRequestError, NotFoundError } from "../../helpers/api-errors";
 import { ITaskRepository } from "../../repositories/ITaskRepositories";
+import formatValidationErrors from "../../utils/formatValidationErrors";
 
 class TaskService {
   constructor(private taskRepository: ITaskRepository) {}
 
-  async create({ title, description, isFinished, userId }: Task) {
-    const taskCreate = Task.create({
-      title,
-      description,
-      isFinished,
-      userId,
-    });
-    const task = await this.taskRepository.create(taskCreate);
+  async create(task: Task) {
+    const taskCreate = Task.create(task);
 
-    return task;
+    const validationErrors = await validate(taskCreate);
+
+    if (validationErrors.length > 0) {
+      throw new BadRequestError(formatValidationErrors(validationErrors));
+    }
+
+    const newTask = await this.taskRepository.create(taskCreate);
+
+    return newTask;
   }
 
   async update({ id, title, description, isFinished, userId }: Partial<Task>) {
@@ -24,15 +28,12 @@ class TaskService {
       throw new NotFoundError("Task not found.");
     }
 
-    const taskCreate = Task.create({
-      id,
-      userId,
+    const task = await this.taskRepository.update({
       title,
       description,
       isFinished,
+      userId,
     });
-
-    const task = await this.taskRepository.update(taskCreate);
 
     return task;
   }

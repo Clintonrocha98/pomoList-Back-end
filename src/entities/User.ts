@@ -1,6 +1,7 @@
 import {
   IsEmail,
   IsNotEmpty,
+  IsOptional,
   IsString,
   MaxLength,
   MinLength,
@@ -18,6 +19,10 @@ export class User {
 
   @MinLength(8)
     password: string;
+  
+  @IsString()
+  @IsOptional()
+    id?: string;
 
   constructor({ name, email, password }: User) {
     return Object.assign(this, {

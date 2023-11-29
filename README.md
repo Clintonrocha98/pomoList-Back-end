@@ -39,6 +39,6 @@ npm install
 - ``/createuser``
 - ``/login``
 - ``/createtask``
-- ``/tasks``
+- ``/tasks/:userId``
 - ``/updatetask``
 - ``/deletetask``

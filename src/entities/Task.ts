@@ -12,6 +12,7 @@ class Task {
     id?: string;
 
   @IsString()
+  @IsNotEmpty()
     userId: string;
 
   @IsString()

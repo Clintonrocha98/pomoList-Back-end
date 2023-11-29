@@ -2,7 +2,6 @@ import { hash } from "bcryptjs";
 import { User } from "../../entities/User";
 import { BadRequestError, UnauthorizedError } from "../../helpers/api-errors";
 import { IUsersRepository } from "../../repositories/IUsersRepositories";
-
 import { validate } from "class-validator";
 import formatValidationErrors from "../../utils/formatValidationErrors";
 
@@ -20,6 +19,7 @@ class UserService {
     const userAlreadyExists = await this.usersRepository.exists(
       userInput.email
     );
+
     if (userAlreadyExists) {
       throw new UnauthorizedError("Invalid user!");
     }
