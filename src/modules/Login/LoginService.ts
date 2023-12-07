@@ -19,7 +19,8 @@ class LoginService {
     }
 
     const userAlreadyExists = await this.usersRepository.exists(email);
-    if (userAlreadyExists) {
+
+    if (!userAlreadyExists) {
       throw new NotFoundError("Invalid user!");
     }
     const user = await this.usersRepository.findUser(email);
@@ -34,7 +35,7 @@ class LoginService {
     });
 
     const data = { token, id: user.id };
-
+    
     return data;
   }
 }

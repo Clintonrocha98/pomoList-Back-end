@@ -2,7 +2,7 @@ import { PrismaUserRepository } from "../../repositories/prisma/PrismaUserReposi
 import { LoginController } from "./LoginController";
 import { LoginService } from "./LoginService";
 
-export const Login = () => {
+export const loginFactory = () => {
   const usersRepository = new PrismaUserRepository();
   const loginService = new LoginService(usersRepository);
   const login = new LoginController(loginService);

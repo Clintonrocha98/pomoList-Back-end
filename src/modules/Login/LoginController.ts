@@ -6,7 +6,9 @@ export class LoginController {
 
   async handle(request: Request, response: Response) {
     const { email, password } = request.body;
-    const data = this.login.create(email, password);
+
+    const data = await this.login.create(email, password);
+    
     return response.status(200).json(data);
   }
 }

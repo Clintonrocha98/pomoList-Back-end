@@ -4,7 +4,7 @@ import { UserService } from "./UserService";
 class UserController {
   constructor(private createUser: UserService) {}
 
-  async create(request: Request, response: Response) {
+  async handle(request: Request, response: Response) {
     const { name, email, password } = request.body;
     await this.createUser.create({ email, password, name });
 
