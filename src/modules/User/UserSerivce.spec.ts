@@ -7,7 +7,6 @@ const usersRepository = new UsersRepositoryInMemory();
 const createUserService = new UserService(usersRepository);
 
 describe("Create user", () => {
-
   it("It should be possible to create a new user", async () => {
     const userData: User = {
       name: "teste 1",

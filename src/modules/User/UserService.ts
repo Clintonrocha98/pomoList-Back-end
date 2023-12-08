@@ -8,10 +8,10 @@ import formatValidationErrors from "../../utils/formatValidationErrors";
 class UserService {
   constructor(private usersRepository: IUsersRepository) {}
 
-  async create(userInput: { name: string; email: string; password: string }) {
-    const dto = User.create(userInput);
+  async create(userInput: User) {
+    const UserCreated = User.create(userInput);
 
-    const validationErrors = await validate(dto);
+    const validationErrors = await validate(UserCreated);
 
     if (validationErrors.length > 0) {
       throw new BadRequestError(formatValidationErrors(validationErrors));
