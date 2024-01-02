@@ -1,5 +1,6 @@
-# pomoList
-O pomoList é um projeto de API construído com Node.js e Express.js que oferece funcionalidades de gerenciamento de tarefas, permitindo que os usuários criem uma conta, façam login e gerenciem suas tarefas de forma eficiente. O projeto utiliza o banco de dados MongoDB e a biblioteca Prisma para persistência de dados.
+# pomoList - API
+
+O PomoList é um projeto de API construído com Node.js e Express.js, seguindo os princípios SOLID, que proporciona funcionalidades de gerenciamento de tarefas. Os usuários podem criar uma conta, fazer login e gerenciar suas tarefas. A persistência de dados é garantida através do banco de dados MongoDB e da biblioteca Prisma.
 
 ### Funcionalidades
 
@@ -13,8 +14,75 @@ O pomoList é um projeto de API construído com Node.js e Express.js que oferece
   - Editar uma tarefa existente.
   - Deletar uma tarefa existente.
 
+### Rotas
+
+```json
+POST /createuser
+Content-Type: application/json
+  {
+    "name": "Nome do Usuário",
+    "email": "usuario@email.com",
+    "password": "senha123"
+  }
+```
+
+```json
+POST /login
+Content-Type: application/json
+
+  {
+    "email": "usuario@email.com",
+    "password": "senha123"
+  }
+```
+
+```json
+POST /createtask
+Authorization: Bearer [Token de Autenticação]
+Content-Type: application/json
+
+  {
+    "title": "Nome da Tarefa",
+    "description": "Descrição da Tarefa",
+    "isFinished": false,
+    "userId": "1sa5d1as5d1asd6"
+  }
+```
+
+```json
+GET /tasks/userId
+Authorization: Bearer [Token de Autenticação]
+```
+
+```json
+PUT /updatetask
+Authorization: Bearer [Token de Autenticação]
+Content-Type: application/json
+
+  {
+    "id": "userID",
+    "title": "Nome da Tarefa",
+    "description": "Descrição da Tarefa",
+    "isFinished": false,
+    "userId": "1sa5d1as5d1asd6"
+  }
+
+}
+```
+
+```json
+DELETE /deletetask
+Authorization: Bearer [Token de Autenticação]
+Content-Type: application/json
+
+  {
+    "id": "userID",
+    "taskId": "1sa5d1as5d1asd6"
+  }
+```
 
 ### Instalação
+
 Para configurar e executar o projeto localmente, siga estas etapas:
 
 1. Clone o repositório do GitHub:
@@ -35,10 +103,3 @@ cd pomoList
 npm install
 ```
 
-### Rotas
-- ``/createuser``
-- ``/login``
-- ``/createtask``
-- ``/tasks/:userId``
-- ``/updatetask``
-- ``/deletetask``
