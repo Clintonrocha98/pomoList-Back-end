@@ -16,8 +16,9 @@ O PomoList é um projeto de API construído com Node.js e Express.js, seguindo o
 
 ### Rotas
 
+Endpoint: `POST /createuser`
+
 ```json
-//POST /createuser
 {
   "name": "Nome do Usuário",
   "email": "usuario@email.com",
@@ -25,17 +26,19 @@ O PomoList é um projeto de API construído com Node.js e Express.js, seguindo o
 }
 ```
 
+Endpoint: `POST /login`
+
 ```json
-//POST /login
 {
   "email": "usuario@email.com",
   "password": "senha123"
 }
 ```
 
+Endpoint: `POST /createtask`
+Authorization: `Bearer [Token de Autenticação]`
+
 ```json
-//POST /createtask
-//Authorization: Bearer [Token de Autenticação]
 {
   "title": "Nome da Tarefa",
   "description": "Descrição da Tarefa",
@@ -44,14 +47,13 @@ O PomoList é um projeto de API construído com Node.js e Express.js, seguindo o
 }
 ```
 
-```json
-//GET /tasks/userId
-//Authorization: Bearer [Token de Autenticação]
-```
+Endpoint: `GET /tasks/userId`
+Authorization: `Bearer [Token de Autenticação]`
+
+Endpoint: `PUT /updatetask`
+Authorization: `Bearer [Token de Autenticação]`
 
 ```json
-//PUT /updatetask
-//Authorization: Bearer [Token de Autenticação]
 {
   "id": "userID",
   "title": "Nome da Tarefa",
@@ -61,9 +63,10 @@ O PomoList é um projeto de API construído com Node.js e Express.js, seguindo o
 }
 ```
 
+Endpoint: `DELETE /deletetask`
+Authorization: `Bearer [Token de Autenticação]`
+
 ```json
-//DELETE /deletetask
-//Authorization: Bearer [Token de Autenticação]
 {
   "id": "userID",
   "taskId": "1sa5d1as5d1asd6"
