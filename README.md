@@ -16,65 +16,51 @@ O PomoList é um projeto de API construído com Node.js e Express.js, seguindo o
 
 ### Rotas
 
-```json
-POST /createuser
-Content-Type: application/json
+- POST /createuser
+  ```json
   {
     "name": "Nome do Usuário",
     "email": "usuario@email.com",
     "password": "senha123"
   }
-```
-
-```json
-POST /login
-Content-Type: application/json
-
+  ```
+- POST /login
+  ```json
   {
     "email": "usuario@email.com",
     "password": "senha123"
   }
-```
+  ```
+- POST /createtask
+  Authorization: Bearer [Token de Autenticação]
 
-```json
-POST /createtask
-Authorization: Bearer [Token de Autenticação]
-Content-Type: application/json
-
+  ```json
   {
     "title": "Nome da Tarefa",
     "description": "Descrição da Tarefa",
     "isFinished": false,
     "userId": "1sa5d1as5d1asd6"
   }
-```
+  ```
 
-```json
-GET /tasks/userId
-Authorization: Bearer [Token de Autenticação]
-```
-
-```json
-PUT /updatetask
-Authorization: Bearer [Token de Autenticação]
-Content-Type: application/json
-
-  {
-    "id": "userID",
-    "title": "Nome da Tarefa",
-    "description": "Descrição da Tarefa",
-    "isFinished": false,
-    "userId": "1sa5d1as5d1asd6"
+- GET /tasks/userId
+  Authorization: Bearer [Token de Autenticação]
+  
+- PUT /updatetask
+  Authorization: Bearer [Token de Autenticação]
+  ```json
+    {
+      "id": "userID",
+      "title": "Nome da Tarefa",
+      "description": "Descrição da Tarefa",
+      "isFinished": false,
+      "userId": "1sa5d1as5d1asd6"
+    }
   }
-
-}
-```
-
+  ```
+- DELETE /deletetask
+  Authorization: Bearer [Token de Autenticação]
 ```json
-DELETE /deletetask
-Authorization: Bearer [Token de Autenticação]
-Content-Type: application/json
-
   {
     "id": "userID",
     "taskId": "1sa5d1as5d1asd6"
@@ -102,4 +88,3 @@ cd pomoList
 ```bash
 npm install
 ```
-
