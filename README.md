@@ -32,7 +32,7 @@ O PomoList é um projeto de API construído com Node.js e Express.js, seguindo o
   }
   ```
 - POST /createtask
-  Authorization: Bearer [Token de Autenticação]
+Authorization: Bearer [Token de Autenticação]
 
   ```json
   {
@@ -42,29 +42,30 @@ O PomoList é um projeto de API construído com Node.js e Express.js, seguindo o
     "userId": "1sa5d1as5d1asd6"
   }
   ```
-
 - GET /tasks/userId
-  Authorization: Bearer [Token de Autenticação]
-  
+Authorization: Bearer [Token de Autenticação]
+
 - PUT /updatetask
-  Authorization: Bearer [Token de Autenticação]
+Authorization: Bearer [Token de Autenticação]
+
   ```json
-    {
-      "id": "userID",
-      "title": "Nome da Tarefa",
-      "description": "Descrição da Tarefa",
-      "isFinished": false,
-      "userId": "1sa5d1as5d1asd6"
-    }
-  }
-  ```
-- DELETE /deletetask
-  Authorization: Bearer [Token de Autenticação]
-```json
   {
     "id": "userID",
-    "taskId": "1sa5d1as5d1asd6"
+    "title": "Nome da Tarefa",
+    "description": "Descrição da Tarefa",
+    "isFinished": false,
+    "userId": "1sa5d1as5d1asd6"
   }
+  ```
+
+- DELETE /deletetask
+Authorization: Bearer [Token de Autenticação]
+
+```json
+{
+  "id": "userID",
+  "taskId": "1sa5d1as5d1asd6"
+}
 ```
 
 ### Instalação
