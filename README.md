@@ -16,52 +16,54 @@ O PomoList é um projeto de API construído com Node.js e Express.js, seguindo o
 
 ### Rotas
 
-- POST /createuser
-  ```json
-  {
-    "name": "Nome do Usuário",
-    "email": "usuario@email.com",
-    "password": "senha123"
-  }
-  ```
-- POST /login
-  ```json
-  {
-    "email": "usuario@email.com",
-    "password": "senha123"
-  }
-  ```
-- POST /createtask
-Authorization: Bearer [Token de Autenticação]
-
-  ```json
-  {
-    "title": "Nome da Tarefa",
-    "description": "Descrição da Tarefa",
-    "isFinished": false,
-    "userId": "1sa5d1as5d1asd6"
-  }
-  ```
-- GET /tasks/userId
-Authorization: Bearer [Token de Autenticação]
-
-- PUT /updatetask
-Authorization: Bearer [Token de Autenticação]
-
-  ```json
-  {
-    "id": "userID",
-    "title": "Nome da Tarefa",
-    "description": "Descrição da Tarefa",
-    "isFinished": false,
-    "userId": "1sa5d1as5d1asd6"
-  }
-  ```
-
-- DELETE /deletetask
-Authorization: Bearer [Token de Autenticação]
+```json
+//POST /createuser
+{
+  "name": "Nome do Usuário",
+  "email": "usuario@email.com",
+  "password": "senha123"
+}
+```
 
 ```json
+//POST /login
+{
+  "email": "usuario@email.com",
+  "password": "senha123"
+}
+```
+
+```json
+//POST /createtask
+//Authorization: Bearer [Token de Autenticação]
+{
+  "title": "Nome da Tarefa",
+  "description": "Descrição da Tarefa",
+  "isFinished": false,
+  "userId": "1sa5d1as5d1asd6"
+}
+```
+
+```json
+//GET /tasks/userId
+//Authorization: Bearer [Token de Autenticação]
+```
+
+```json
+//PUT /updatetask
+//Authorization: Bearer [Token de Autenticação]
+{
+  "id": "userID",
+  "title": "Nome da Tarefa",
+  "description": "Descrição da Tarefa",
+  "isFinished": false,
+  "userId": "1sa5d1as5d1asd6"
+}
+```
+
+```json
+//DELETE /deletetask
+//Authorization: Bearer [Token de Autenticação]
 {
   "id": "userID",
   "taskId": "1sa5d1as5d1asd6"
@@ -72,19 +74,19 @@ Authorization: Bearer [Token de Autenticação]
 
 Para configurar e executar o projeto localmente, siga estas etapas:
 
-1. Clone o repositório do GitHub:
+Clone o repositório do GitHub:
 
 ```bash
 git clone git@github.com:Clintonrocha98/pomoList-Back-end.git
 ```
 
-2. Acesse a pasta do projeto:
+Acesse a pasta do projeto:
 
 ```bash
 cd pomoList
 ```
 
-3. Instale as dependências usando:
+Instale as dependências usando:
 
 ```bash
 npm install
